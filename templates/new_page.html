@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+	<h1>Create Landing Page</h1>
+	<form method="post" class="card">
+		<div>
+			<label for="title">Title</label>
+			<input class="input" id="title" name="title" placeholder="e.g., AI Cold Email Writer" required />
+		</div>
+		<div>
+			<label for="hero_text">Hero Text</label>
+			<textarea class="input" id="hero_text" name="hero_text" rows="2" placeholder="Solve X for Y in Z minutes" required></textarea>
+		</div>
+		<div>
+			<label for="value_prop">Value Proposition</label>
+			<textarea class="input" id="value_prop" name="value_prop" rows="4" placeholder="Bulleted benefits, outcomes, and social proof" required></textarea>
+		</div>
+		<div class="row">
+			<div>
+				<label for="cta_text">CTA Text</label>
+				<input class="input" id="cta_text" name="cta_text" placeholder="Get Early Access" required />
+			</div>
+			<div>
+				<label for="price">Price (optional)</label>
+				<input class="input" id="price" name="price" placeholder="$49" />
+			</div>
+		</div>
+		<div>
+			<label for="stripe_url">Stripe Checkout URL (optional)</label>
+			<input class="input" id="stripe_url" name="stripe_url" placeholder="https://checkout.stripe.com/pay/..." />
+		</div>
+		<div class="actions" style="margin-top:12px;">
+			<button class="primary" type="submit">Publish</button>
+		</div>
+	</form>
+{% endblock %}

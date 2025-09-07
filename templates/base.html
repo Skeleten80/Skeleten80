@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>{{ title or 'Money Maker' }}</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+	<nav class="nav">
+		<a href="/" class="brand">Money Maker</a>
+		<div class="nav-links">
+			<a href="{{ url_for('ideas') }}">Ideas</a>
+			<a href="{{ url_for('pricing') }}">Pricing</a>
+			<a href="{{ url_for('pages_list') }}">Pages</a>
+			<a href="{{ url_for('new_page') }}" class="btn">New Page</a>
+		</div>
+	</nav>
+
+	{% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+		<div class="flash-container">
+			{% for category, message in messages %}
+				<div class="flash {{ category }}">{{ message }}</div>
+			{% endfor %}
+		</div>
+	{% endif %}
+	{% endwith %}
+
+	<main class="container">
+		{% block content %}{% endblock %}
+	</main>
+
+	<footer class="footer">
+		<div>Built to help you make money faster.</div>
+	</footer>
+</body>
+</html>

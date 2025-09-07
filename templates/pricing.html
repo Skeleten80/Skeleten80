@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+	<h1>Pricing Calculator</h1>
+	<form method="post" class="card">
+		<div class="row">
+			<div>
+				<label for="target_mrr">Target MRR ($/mo)</label>
+				<input class="input" id="target_mrr" name="target_mrr" type="number" step="any" placeholder="5000" />
+			</div>
+			<div>
+				<label for="conversion_rate">Conversion Rate (%)</label>
+				<input class="input" id="conversion_rate" name="conversion_rate" type="number" step="any" placeholder="2" />
+			</div>
+		</div>
+		<div class="row">
+			<div>
+				<label for="monthly_visitors">Monthly Visitors</label>
+				<input class="input" id="monthly_visitors" name="monthly_visitors" type="number" step="any" placeholder="2000" />
+			</div>
+			<div>
+				<label for="cost_per_unit">Cost per Unit ($)</label>
+				<input class="input" id="cost_per_unit" name="cost_per_unit" type="number" step="any" placeholder="0" />
+			</div>
+		</div>
+		<div class="actions" style="margin-top:12px;">
+			<button class="primary" type="submit">Calculate</button>
+		</div>
+	</form>
+
+	{% if result %}
+		<div class="card">
+			<h3>Suggested Tiers</h3>
+			<p>Expected buyers/month: <strong>{{ result.buyers_per_month }}</strong></p>
+			<div class="grid">
+				<div class="card"><h4>Low</h4><div>${{ '%.2f'|format(result.price_low) }}</div></div>
+				<div class="card"><h4>Mid</h4><div>${{ '%.2f'|format(result.price_mid) }}</div></div>
+				<div class="card"><h4>High</h4><div>${{ '%.2f'|format(result.price_high) }}</div></div>
+			</div>
+		</div>
+	{% endif %}
+{% endblock %}

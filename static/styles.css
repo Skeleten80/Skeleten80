@@ -1,0 +1,96 @@
+:root {
+	--bg: #0b1117;
+	--panel: #111827;
+	--text: #e5e7eb;
+	--muted: #9ca3af;
+	--accent: #22c55e;
+	--accent-strong: #16a34a;
+	--error: #ef4444;
+}
+
+* { box-sizing: border-box; }
+
+body {
+	margin: 0;
+	font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+	background: var(--bg);
+	color: var(--text);
+}
+
+.container {
+	max-width: 980px;
+	margin: 32px auto;
+	padding: 0 16px;
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 16px 20px;
+	background: #0f172a;
+	position: sticky;
+	top: 0;
+	border-bottom: 1px solid #1f2937;
+	z-index: 10;
+}
+
+.nav a { color: var(--text); text-decoration: none; }
+
+.brand { font-weight: 700; }
+
+.nav-links a { margin-left: 16px; color: var(--muted); }
+.nav-links a:hover { color: var(--text); }
+
+.btn {
+	background: var(--accent);
+	color: #041007;
+	padding: 8px 12px;
+	border-radius: 8px;
+	margin-left: 12px;
+}
+.btn:hover { background: var(--accent-strong); }
+
+.card {
+	background: var(--panel);
+	border: 1px solid #1f2937;
+	border-radius: 12px;
+	padding: 20px;
+	margin: 16px 0;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 16px;
+}
+
+.input, select, textarea {
+	width: 100%;
+	background: #0b1220;
+	border: 1px solid #243043;
+	color: var(--text);
+	padding: 10px 12px;
+	border-radius: 10px;
+}
+
+label { display: block; margin-bottom: 6px; color: var(--muted); }
+
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.actions { display: flex; gap: 12px; align-items: center; }
+
+.primary { background: var(--accent); color: #041007; border: none; padding: 10px 14px; border-radius: 10px; cursor: pointer; }
+.primary:hover { background: var(--accent-strong); }
+
+.flash-container { max-width: 980px; margin: 16px auto; padding: 0 16px; }
+.flash { padding: 12px 14px; border-radius: 10px; margin: 8px 0; }
+.flash.success { background: rgba(34,197,94,0.15); border: 1px solid #14532d; }
+.flash.error { background: rgba(239,68,68,0.15); border: 1px solid #7f1d1d; }
+
+.footer { text-align: center; color: var(--muted); padding: 40px 0; }
+
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td { border-bottom: 1px solid #1f2937; padding: 10px; text-align: left; }
+.table th { color: var(--muted); font-weight: 600; }
+.link { color: #86efac; }

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+	<h1>Idea Generator</h1>
+	<form method="post" class="card">
+		<div class="row">
+			<div>
+				<label for="industry">Industry / Niche</label>
+				<input class="input" id="industry" name="industry" placeholder="e.g., Shopify, HVAC, Indie devs" />
+			</div>
+			<div>
+				<label for="audience">Audience</label>
+				<input class="input" id="audience" name="audience" placeholder="e.g., founders, agencies, podcasters" />
+			</div>
+		</div>
+		<div>
+			<label for="skills">Your unfair advantage / skills</label>
+			<input class="input" id="skills" name="skills" placeholder="e.g., scraping, SEO, automation, data viz" />
+		</div>
+		<div class="actions" style="margin-top:12px;">
+			<button class="primary" type="submit">Generate</button>
+		</div>
+	</form>
+
+	{% if ideas and ideas|length %}
+		<div class="grid">
+			{% for idea in ideas %}
+				<div class="card">
+					<h3>{{ idea.name }}</h3>
+					<p>{{ idea.description }}</p>
+					<p class="muted">Monetization: {{ idea.monetization }}</p>
+				</div>
+			{% endfor %}
+		</div>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+	<div class="card">
+		<h1>Make Money Faster</h1>
+		<p class="muted">Use idea prompts, pricing guidance, and instant landing pages to validate and sell.</p>
+		<div class="actions" style="margin-top:12px;">
+			<a class="btn" href="{{ url_for('ideas') }}">Generate Ideas</a>
+			<a class="btn" href="{{ url_for('pricing') }}">Pricing Calculator</a>
+			<a class="btn" href="{{ url_for('new_page') }}">Create Landing Page</a>
+		</div>
+	</div>
+
+	<div class="grid">
+		<div class="card">
+			<h3>1. Ideate</h3>
+			<p>Describe your niche, audience, and skills to get monetizable concepts.</p>
+		</div>
+		<div class="card">
+			<h3>2. Price</h3>
+			<p>Back into pricing from your MRR goal and traffic assumptions.</p>
+		</div>
+		<div class="card">
+			<h3>3. Launch</h3>
+			<p>Publish a simple landing page with email capture and optional Stripe link.</p>
+		</div>
+	</div>
+{% endblock %}

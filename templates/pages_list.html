@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+	<h1>Landing Pages</h1>
+	<div class="card">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Slug</th>
+					<th>Signups</th>
+					<th>Created</th>
+					<th>Link</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for page in pages %}
+					<tr>
+						<td>{{ page.title }}</td>
+						<td>{{ page.slug }}</td>
+						<td>{{ counts[page.id] or 0 }}</td>
+						<td>{{ page.created_at.strftime('%Y-%m-%d') }}</td>
+						<td><a class="link" href="{{ url_for('view_page', slug=page.slug) }}" target="_blank">Open</a></td>
+					</tr>
+				{% else %}
+					<tr><td colspan="5">No pages yet. <a class="link" href="{{ url_for('new_page') }}">Create one</a>.</td></tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}

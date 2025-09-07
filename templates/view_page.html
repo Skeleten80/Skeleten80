@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>{{ page.title }}</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+	<style>
+		.hero { max-width: 760px; margin: 64px auto 24px; text-align: center; }
+		.signup { max-width: 480px; margin: 0 auto; }
+	</style>
+</head>
+<body>
+	<main class="container">
+		<div class="hero">
+			<h1>{{ page.hero_text }}</h1>
+			<div class="card" style="text-align:left; margin-top:16px;">{{ page.value_prop|safe }}</div>
+			{% if page.price %}
+				<p style="opacity:.8;">Price: {{ page.price }}</p>
+			{% endif %}
+			<div class="signup card">
+				<form method="post" action="{{ url_for('signup_email', slug=page.slug) }}">
+					<label for="email">Join the waitlist</label>
+					<input class="input" id="email" name="email" type="email" placeholder="you@example.com" required />
+					<div class="actions" style="margin-top:12px;">
+						<button class="primary" type="submit">{{ page.cta_text }}</button>
+						{% if page.stripe_url %}
+							<a class="btn" href="{{ page.stripe_url }}" target="_blank">Buy Now</a>
+						{% endif %}
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
+</body>
+</html>
